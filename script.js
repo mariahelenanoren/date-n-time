@@ -25,9 +25,9 @@ function updateClock() {
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
 
-    hours = formateHours(hours);
-    minutes = formateMinutes(minutes);
-    seconds = formateSeconds(seconds);
+    hours = formatHours(hours);
+    minutes = formatMinutes(minutes);
+    seconds = formatSeconds(seconds);
 
     timeHolder.innerHTML = hours + ":" + minutes + ":" + seconds;
 
@@ -42,7 +42,7 @@ function updateClock() {
  * @param {number} hours the current hour
  * * @returns {number} hours formatted in double digits
  */
-function formateHours(hours) {
+function formatHours(hours) {
     if (hours < 10) {
         return "0" + hours;
     }
@@ -56,7 +56,7 @@ function formateHours(hours) {
  * @param {number} minutes the current minute
  * * @returns {number} minutes formatted in double digits
  */
-function formateMinutes(minutes) {
+function formatMinutes(minutes) {
     if (minutes < 10) {
         return "0" + minutes;
     }
@@ -70,7 +70,7 @@ function formateMinutes(minutes) {
  * @param {number} seconds the current second
  * @returns {number, string} seconds formatted in double digits
  */
-function formateSeconds(seconds) {
+function formatSeconds(seconds) {
     if (seconds < 10) {
         return "0" + seconds;
     }
