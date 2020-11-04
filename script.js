@@ -4,18 +4,21 @@ dateContainer.appendChild(timeHolder);
 const dateHolder = document.createElement("p");
 dateContainer.appendChild(dateHolder);
 
+/** Starts functions on window load */
 window.onload = startFunctions;
 
+/** Functions to be started on window load */
 function startFunctions() {
     startClock();
 }
 
-
+/** Starts the clock */
 function startClock() {
     updateClock();
     setInterval(updateClock, 1000);
 }
 
+/** Updates and displays the current time and date */
 function updateClock() {
     const date = new Date();
     let hours = date.getHours();
@@ -34,6 +37,11 @@ function updateClock() {
     dateHolder.innerHTML = day + " the " + dayOfMonth + " of " + month
 }
 
+/**
+ * Formats the hours to be displayed in double digits
+ * @param {number} hours the current hour
+ * * @returns {number} hours formatted in double digits
+ */
 function formateHours(hours) {
     if (hours < 10) {
         return "0" + hours;
@@ -42,6 +50,12 @@ function formateHours(hours) {
         return hours;
     }
 }
+
+/**
+ * Formats the minutes to be displayed in double digits
+ * @param {number} minutes the current minute
+ * * @returns {number} minutes formatted in double digits
+ */
 function formateMinutes(minutes) {
     if (minutes < 10) {
         return "0" + minutes;
@@ -50,6 +64,12 @@ function formateMinutes(minutes) {
         return minutes;
     }
 }
+
+/**
+ * Formats the seconds to be displayed in double digits
+ * @param {number} seconds the current second
+ * @returns {number, string} seconds formatted in double digits
+ */
 function formateSeconds(seconds) {
     if (seconds < 10) {
         return "0" + seconds;
@@ -59,6 +79,11 @@ function formateSeconds(seconds) {
     }
 }
 
+/**
+ * Changes the date to name of weekday
+ * @param {number} date the current date
+ * * @returns {string} the name of current weekday
+ */
 function getWeekday(date) {
     const weekdayIndex = date.getDay();
     switch (weekdayIndex) {
@@ -72,6 +97,11 @@ function getWeekday(date) {
     }
 }
 
+/**
+ * Formats the day of the month
+ * @param {number} date the current date
+ * @returns {number, string} formatted day of the month
+ */
 function getDayOfMonth(date) {
     const currentDate = date.getDate();
     switch (currentDate) {
@@ -82,10 +112,25 @@ function getDayOfMonth(date) {
     }
 }
 
+/**
+ * Changes the date to name of month
+ * @param {number} date the current date
+ * @returns {string} name of current month
+ */
 function getMonth(date) {
     const month = date.getMonth();
     switch (month) {
         case 0: return "January";
-        case 10: return "November"
+        case 1: return "February";
+        case 2: return "March";
+        case 3: return "April";
+        case 4: return "May";
+        case 5: return "June";
+        case 6: return "July";
+        case 7: return "August";
+        case 8: return "September";
+        case 9: return "Oktober";
+        case 10: return "November";
+        case 11: return "December";
     }
 }
